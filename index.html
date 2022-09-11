@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form figurinhas</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdIMbz7yl5P4PQk6soWyarBGmUl8qs5OM"></script>
+</head>
+
+<body class="container" style="margin-top: 50px;
+	width: 50%; height:auto;">
+
+    <h2 class="text-primary" style="margin-left: 15px; margin-bottom: 10px">
+        Cadastre aqui sua figurinha repetida!
+    </h2>
+
+    <form class="container" id="stickerForm">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">
+                        Nome:
+                    </label>
+
+                    <input type="text" class="form-control" id="name" placeholder="Digite o nome da figurinha">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">
+                        Sua cidade:
+                    </label>
+
+                    <input type="text" class="form-control" id="city" placeholder="Digite o nome da sua cidade">
+
+                    <script>
+                        $(function () {
+                            let url = 'https://servicodados.ibge.gov.br/api/v1/localidades/distritos'
+
+                            fetch(url)
+                                .then(async (response) => {
+                                    let cidades_json = await response.json();
+
+                                    let cidades = cidades_json.map((cidade) => cidade.nome)
+
+                                    $("#city").autocomplete({
+                                        source: cidades
+                                    });
+                                })
+                        });
+                    </script>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">
+                        Seu número de celular:
+                    </label>
+
+                    <input type="tel" class="form-control" id="phone" placeholder="Digite o nome da sua cidade">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-left: 15px; margin-top: 10px">
+                Enviar
+            </button>
+
+        </div>
+
+
+    </form>
+
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBj0yHhIgVLyIlCclPMpZqwqeVLKkZQEi4",
+            authDomain: "site-web-design.firebaseapp.com",
+            databaseURL: "https://site-web-design-default-rtdb.firebaseio.com",
+            projectId: "site-web-design",
+            storageBucket: "site-web-design.appspot.com",
+            messagingSenderId: "874167131974",
+            appId: "1:874167131974:web:fbbcba2908a2809ad28f47"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        var messagesRef = firebase.database()
+            .ref('Stickers');
+
+        document.getElementById('stickerForm')
+            .addEventListener('submit', submitForm);
+
+        function submitForm(e) {
+            e.preventDefault();
+
+            // Get values
+            var name = getInputVal('name');
+            var city = getInputVal('city');
+            var phone = getInputVal('phone');
+
+
+            saveMessage(name, city, phone);
+            document.getElementById('stickerForm').reset();
+        }
+
+        // Function to get get form values
+        function getInputVal(id) {
+            return document.getElementById(id).value;
+        }
+
+        // Save message to firebase
+        function saveMessage(name, city, phone) {
+            var newMessageRef = messagesRef.push();
+            newMessageRef.set({
+                name: name,
+                city: city,
+                phone: phone
+            });
+        }
+
+        function initialize() {
+            var mapOptions = {
+                center: new google.maps.LatLng(-34.397, 150.644),
+                zoom: 8,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("map_canvas"),
+                mapOptions);
+
+            console.log(map);
+        }
+    </script>
+</body>
+
+</html>
