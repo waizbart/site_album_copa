@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    min-height: 100rem;
+    flex-direction: column;
+    margin: 0;
+}
+
+.main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    color: azure;
+    font-family: poppins, sans-serif;
+    background-image: linear-gradient(45deg, #30051f, #731331);
+    align-items: center;
+}
+
+.title {
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2rem;
+}
+
+.subtitle {
+    font-weight: 400;
+    font-style: italic;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.cards {
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 700;
+}
+
+.card {
+    padding: 2rem;
+    margin: 1rem;
+    max-width: 15rem;
+    max-height: 15rem;
+    background-color: #30051f;
+    border-radius: 0.5rem;
+    border: 1px solid azure;
+    font-weight: 400;
+}
+
+#card1 {
+    box-shadow: #009c3b 10px 10px 0px 2px;
+}
+
+#card2 {
+    box-shadow: #ffdf00 10px 10px 0px 2px;
+}
+
+#card3 {
+    box-shadow: #002776 10px 10px 0px 2px;
+}
+
+.cadastro {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    margin-top: 5rem;
+    background-color: #30051f;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid azure;
+    text-align: center;
+    box-shadow: azure 10px 10px 0px 2px;
+}
+
+.cadastro-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#message_error {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #731331;
+    color: azure;
+    border-radius: 0.5rem;
+    border: 1px solid azure;
+}
+
+#message_ok {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #00b018;
+    color: azure;
+    border-radius: 0.5rem;
+    border: 1px solid azure;
+}
+
+input {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid azure;
+    background-color: #30051f;
+    color: azure;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: #731331 2px 2px 2px 2px;
+}
+
+button {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid azure;
+    background-color: #30051f;
+    color: azure;
+    font-weight: 700;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #731331;
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    margin-top: 5rem;
+    background-color: #30051f;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid azure;
+    text-align: center;
+    box-shadow: azure 10px 10px 0px 2px;
+    align-items: center;
+    justify-content: center;
+}
