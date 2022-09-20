@@ -13,8 +13,6 @@ firebase.initializeApp(firebaseConfig);
 var messagesRef = firebase.database()
     .ref('Stickers');
 
-listStickers()
-
 document.getElementById('stickerForm').addEventListener('submit', submitForm);
 
 function submitForm(e) {
@@ -22,15 +20,17 @@ function submitForm(e) {
 
     // Get values
     var name = getInputVal('name');
+    var sticker_number = getInputVal('number');
     var city = getInputVal('city');
     var phone = getInputVal('phone');
 
     if (name == '' || city == '' || phone == '') {
         document.getElementById('message_error').style.display = 'block';
+        document.getElementById('message_ok').style.display = 'none';
     } else {
         document.getElementById('message_error').style.display = 'none';
 
-        saveMessage(name, city, phone);
+        saveMessage(name, sticker_number, city, phone);
     }
 }
 
@@ -38,10 +38,11 @@ function getInputVal(id) {
     return document.getElementById(id).value;
 }
 
-function saveMessage(name, city, phone) {
+function saveMessage(name, sticker_number, city, phone) {
     var newMessageRef = messagesRef.push();
     newMessageRef.set({
         name: name,
+        sticker_number: sticker_number,
         city: city,
         phone: phone
     }).then(function () {

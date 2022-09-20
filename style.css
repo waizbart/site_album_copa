@@ -7,7 +7,8 @@ body {
     max-height: 100%;
     flex-direction: column;
     margin: 0;
-    background-color: linear-gradient(45deg, #30051f, #731331); ;
+    background-color: linear-gradient(45deg, #30051f, #731331);
+    ;
 }
 
 .main {
@@ -24,6 +25,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media (max-width: 600px)
+{
+  .choice {
+    flex-direction: column;
+  }
 }
 
 .title {
@@ -46,7 +54,15 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+
+
     font-weight: 700;
+}
+
+@media (max-width: 600px) {
+    .cards {
+        flex-direction: column;
+    }
 }
 
 .card {
@@ -93,7 +109,7 @@ body {
     align-items: flex-start;
 }
 
-#procura{
+#procura {
     display: none;
     flex-direction: column;
     font-weight: 500;
@@ -106,7 +122,7 @@ body {
     box-shadow: #E2CFC9 10px 10px 0px 2px;
 }
 
-.procura-body{
+.procura-body {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -121,6 +137,7 @@ body {
     color: azure;
     border-radius: 0.5rem;
     border: 1px solid azure;
+    transition: 1s;
 }
 
 #message_ok {
@@ -166,14 +183,14 @@ button:hover {
 }
 
 
-#linha{
+#linha {
     background-color: #E2CFC9;
     width: 100%;
     height: 1px;
     margin-top: 20px;
 }
 
-#faixa{
+#faixa {
     background-color: #E2CFC9;
     background-color: #E2CFC9;
     width: 100%;
@@ -182,12 +199,13 @@ button:hover {
     font-weight: 700;
     font-style: italic;
     font-size: 2rem;
-    margin: 2; 
-    text-align: center; 
+    margin: 2;
+    text-align: center;
     padding: 0.5rem;
 }
-.cardhouver{
-   
+
+.cardhouver {
+
     padding: 2rem;
     margin: 3rem;
     max-width: 15rem;
@@ -199,10 +217,10 @@ button:hover {
     cursor: pointer;
     box-shadow: #E2CFC9 10px 10px 0px 2px;
     font-size: 1.3rem;
-   
+
 }
 
-#footer{
+#footer {
     display: flex;
     flex-direction: column;
     color: azure;

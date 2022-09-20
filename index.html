@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +15,7 @@
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdIMbz7yl5P4PQk6soWyarBGmUl8qs5OM"></script>
 </head>
+
 <body>
     <div class="main">
         <h1 class="title">
@@ -23,32 +24,32 @@
         <h2 class="subtitle">
             O seu site de troca de figurinhas da copa 2022!
         </h2>
-        
+
         <div id="faixa">
             COMO FUNCIONA ?
-</div>
-    <div class="cards">
-        <div>
-            1.
-            <div class="card" id="card1">
-                Cadastre suas figurinhas repetidas com sua localização e contato
+        </div>
+        <div class="cards">
+            <div>
+                1.
+                <div class="card" id="card1">
+                    Cadastre suas figurinhas repetidas com sua localização e contato
+                </div>
+            </div>
+            >
+            <div>
+                2.
+                <div class="card" id="card2">
+                    Encontre pessoas que precisam das figurinhas que você tem ou aguarde que alguém entre em contato
+                </div>
+            </div>
+            >
+            <div>
+                3.
+                <div class="card" id="card3">
+                    Troque suas figurinhas e divirta-se!
+                </div>
             </div>
         </div>
-        >
-        <div>
-            2.
-            <div class="card" id="card2">
-                Encontre pessoas que precisam das figurinhas que você tem ou aguarde que alguém entre em contato
-            </div>
-        </div>
-        >
-        <div>
-            3.
-            <div class="card" id="card3">
-                Troque suas figurinhas e divirta-se!
-            </div>
-        </div>
-    </div>
         <div id="linha"></div>
         <h3 class="title">
             escolha o que deseja fazer
@@ -62,7 +63,7 @@
                 achar as figurinhas que me faltam
             </button>
         </div>
-        <div id= "linha"></div> 
+        <div id="linha"></div>
         <div class="cadastro" id="cadastro">
             <h2>
                 Cadastre suas figurinhas
@@ -71,16 +72,19 @@
                 <div>
                     <div class="cadastro-body">
                         <div>
-                           <label>
-                            Seu nome
-                           </label>
-                           
-                           <input type="name"
+                            <label>
+                                Seu nome
+                            </label>
+
+                            <input type="text" id="name" placeholder="Digite seu nome">
+                        </div>
+                        <div>
+
                             <label>
                                 Numero da figurinha:
                             </label>
 
-                            <input type="number" id="name" placeholder="Digite o numero da figurinha">
+                            <input type="number" id="number" placeholder="Digite o número da figurinha">
                         </div>
 
                         <div>
@@ -124,10 +128,10 @@
                     <div id="message_error">Erro ao cadastrar figurinha.</div>
                 </div>
             </form>
-        </div>  
+        </div>
         <div class="procura" id="procura">
             <h2>
-            procure suas figurinhas
+                procure suas figurinhas
             </h2>
             <form id="stickerForm">
                 <div>
@@ -138,25 +142,26 @@
                             </label>
 
                             <input type="number" id="name" placeholder="Digite o numero da figurinha">
-                        </div>    
-                        <div>
-                        <button type="submit">
-                            Enviar
-                        </button>
                         </div>
-                    </div>          
+                        <div>
+                            <button type="submit">
+                                Enviar
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
 </body>
 <footer id="footer">
-<div class="linha"></div>
+    <div class="linha"></div>
     <div>
-    <h1 class="subtitle">
-        site feito por Guilherme, Eduardo, Lucas, Felipe, kaua,
-    </h1>
-</div>
+        <h1 class="subtitle">
+            site feito por Guilherme, Eduardo, Lucas, Felipe, kaua,
+        </h1>
+    </div>
 </footer>
 <script src="script.js"></script>
+
 </html>
