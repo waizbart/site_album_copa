@@ -67,21 +67,21 @@ function initialize() {
     console.log(map);
 }
 
-function listStickers() {
-    var list = document.getElementById('stickers_list');
-
-    list.innerHTML = '';
-    
-    messagesRef.on('value', (snapshot) => {
-
-        const data = snapshot.val();
-
-        let keys = Object.keys(data)
-
-        for (let key of keys) {
-            const sticker = data[key];
-
-            list.innerHTML += `<li>${sticker.name} - ${sticker.city} - ${sticker.phone}</li>`;
-        }
+function switchButton1() {
+    document.getElementById("cadastro").style.display = 'block'
+    document.getElementById("procura").style.display = 'none'
+    window.scrollBy({
+        top: 1000,
+        behavior: "smooth"
     });
 }
+
+function switchButton2() {
+    document.getElementById("procura").style.display = 'block'
+    document.getElementById("cadastro").style.display = 'none'
+    window.scrollBy({
+        top: 1000,
+        behavior: "smooth"
+    });
+}
+

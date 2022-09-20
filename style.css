@@ -4,18 +4,25 @@
 
 body {
     display: flex;
-    min-height: 100rem;
+    max-height: 100%;
     flex-direction: column;
     margin: 0;
+    background-color: linear-gradient(45deg, #30051f, #731331); ;
 }
 
 .main {
     display: flex;
-    flex: 1;
+    min-height: 100%;
     flex-direction: column;
-    color: azure;
+    color: #E2CFC9;
     font-family: poppins, sans-serif;
     background-image: linear-gradient(45deg, #30051f, #731331);
+    align-items: center;
+}
+
+.choice {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -28,12 +35,13 @@ body {
 .subtitle {
     font-weight: 400;
     font-style: italic;
-    margin: 0;
+    margin: 1rem;
+    margin-top: 0rem;
     font-size: 1rem;
 }
 
 .cards {
-    margin-top: 4rem;
+    margin-top: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,35 +54,36 @@ body {
     margin: 1rem;
     max-width: 15rem;
     max-height: 15rem;
-    background-color: #30051f;
+    background-color: #E2CFC9;
     border-radius: 0.5rem;
-    border: 1px solid azure;
+    border: 1px solid #30051f;
     font-weight: 400;
+    color: #30051f
 }
 
 #card1 {
-    box-shadow: #009c3b 10px 10px 0px 2px;
+    box-shadow: #30051f 10px 10px 0px 2px;
 }
 
 #card2 {
-    box-shadow: #ffdf00 10px 10px 0px 2px;
+    box-shadow: #30051f 10px 10px 0px 2px;
 }
 
 #card3 {
-    box-shadow: #002776 10px 10px 0px 2px;
+    box-shadow: #30051f 10px 10px 0px 2px;
 }
 
-.cadastro {
-    display: flex;
+#cadastro {
+    display: none;
     flex-direction: column;
     font-weight: 500;
-    margin-top: 5rem;
+    margin: 5rem;
     background-color: #30051f;
     padding: 1rem;
     border-radius: 0.5rem;
-    border: 1px solid azure;
+    border: 1px solid #E2CFC9;
     text-align: center;
-    box-shadow: azure 10px 10px 0px 2px;
+    box-shadow: #E2CFC9 10px 10px 0px 2px;
 }
 
 .cadastro-body {
@@ -82,6 +91,26 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+}
+
+#procura{
+    display: none;
+    flex-direction: column;
+    font-weight: 500;
+    margin: 5rem;
+    background-color: #30051f;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #E2CFC9;
+    text-align: center;
+    box-shadow: #E2CFC9 10px 10px 0px 2px;
+}
+
+.procura-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 #message_error {
@@ -126,6 +155,7 @@ button {
     background-color: #30051f;
     color: azure;
     font-weight: 700;
+
 }
 
 button:hover {
@@ -135,17 +165,51 @@ button:hover {
     transition: 0.2s;
 }
 
-.list {
+
+#linha{
+    background-color: #E2CFC9;
+    width: 100%;
+    height: 1px;
+    margin-top: 20px;
+}
+
+#faixa{
+    background-color: #E2CFC9;
+    background-color: #E2CFC9;
+    width: 100%;
+    height: 50px;
+    color: #731331;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 2rem;
+    margin: 2; 
+    text-align: center; 
+    padding: 0.5rem;
+}
+.cardhouver{
+   
+    padding: 2rem;
+    margin: 3rem;
+    max-width: 15rem;
+    max-height: 15rem;
+    background-color: #30051f;
+    border-radius: 0.5rem;
+    border: 1px solid #E2CFC9;
+    font-weight: 400;
+    cursor: pointer;
+    box-shadow: #E2CFC9 10px 10px 0px 2px;
+    font-size: 1.3rem;
+   
+}
+
+#footer{
     display: flex;
     flex-direction: column;
-    font-weight: 500;
-    margin-top: 5rem;
+    color: azure;
+    font-family: poppins, sans-serif;
     background-color: #30051f;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid azure;
-    text-align: center;
-    box-shadow: azure 10px 10px 0px 2px;
     align-items: center;
-    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
 }
