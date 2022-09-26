@@ -10,7 +10,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-var messagesRef = firebase.database()
+var stickersRef = firebase.database()
     .ref('Stickers');
 
 document.getElementById('stickerForm').addEventListener('submit', submitForm);
@@ -24,7 +24,7 @@ function submitForm(e) {
     var city = getInputVal('city');
     var phone = getInputVal('phone');
 
-    if (name == '' || city == '' || phone == '') {
+    if (name == '' || city == '' || phone == '' || sticker_number == '') {
         document.getElementById('message_error').style.display = 'block';
         document.getElementById('message_ok').style.display = 'none';
     } else {
@@ -39,7 +39,7 @@ function getInputVal(id) {
 }
 
 function saveMessage(name, sticker_number, city, phone) {
-    var newMessageRef = messagesRef.push();
+    var newMessageRef = stickersRef.push();
     newMessageRef.set({
         name: name,
         sticker_number: sticker_number,
@@ -50,27 +50,55 @@ function saveMessage(name, sticker_number, city, phone) {
 
         document.getElementById('stickerForm').reset();
         document.getElementById('message_ok').style.display = 'block';
+
+
     }).catch(function (error) {
         console.log("Got an error: ", error);
         document.getElementById('message_error').style.display = 'block';
     })
 }
 
-function initialize() {
-    var mapOptions = {
-        center: new google.maps.LatLng(-34.397, 150.644),
-        zoom: 8,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map(document.getElementById("map_canvas"),
-        mapOptions);
+function getStickersByNumber() {
+    var sticker_number = document.getElementById('sticker_number').value;
 
-    console.log(map);
+    if (sticker_number == '') {
+        document.getElementById('message_error_search').style.display = 'block';
+        document.getElementById('message_error_search').innerText = "Erro ao buscar figurinha";
+
+    } else {
+        document.getElementById('message_error_search').style.display = 'none';
+
+        stickersRef.once("value")
+            .then(function (snapshot) {
+                document.getElementById('stickersList').innerHTML = "";
+
+                snapshot.forEach(function (childSnapshot) {
+                    var childData = childSnapshot.val();
+
+                    if (childData.sticker_number == sticker_number) {
+                        document.getElementById('stickersList').innerHTML += "<div class='card'>Nome: " + childData.name + "<br>Cidade: " + childData.city + "<br>Número de celular: " + childData.phone + "</div>";
+                    }
+                });
+
+                if (document.getElementById('stickersList').innerHTML == "") {
+                    document.getElementById('message_error_search').style.display = 'block';
+                    document.getElementById('message_error_search').innerText = "Não encontramos nenhuma figurinha com esse número.";
+
+                    return
+                }
+
+                window.scrollBy({
+                    top: 1000,
+                    behavior: "smooth"
+                });
+            });
+    }
 }
 
 function switchButton1() {
     document.getElementById("cadastro").style.display = 'block'
     document.getElementById("procura").style.display = 'none'
+    document.getElementById('stickersList').innerHTML = "";
     window.scrollBy({
         top: 1000,
         behavior: "smooth"
@@ -84,5 +112,14 @@ function switchButton2() {
         top: 1000,
         behavior: "smooth"
     });
+}
+
+function formatPhone() {
+    var phone = document.getElementById('phone').value;
+
+    phone = phone.replace(/\D()-/g, "");
+    phone = phone.replace(/^(\d{2})(\d)/g, "($1) $2");
+    console.log(phone);
+    document.getElementById('phone').value = phone;
 }
 

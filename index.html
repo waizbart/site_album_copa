@@ -12,9 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdIMbz7yl5P4PQk6soWyarBGmUl8qs5OM"></script>
-</head>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script></head>
 
 <body>
     <div class="main">
@@ -26,7 +24,7 @@
         </h2>
 
         <div id="faixa">
-            COMO FUNCIONA ?
+            COMO FUNCIONA?
         </div>
         <div class="cards">
             <div>
@@ -51,16 +49,16 @@
             </div>
         </div>
         <div id="linha"></div>
-        <h3 class="title">
-            escolha o que deseja fazer
-        </h3>
+        <div class="choice-title">
+            Escolha o que deseja fazer:
+        </div>
         <div class="choice">
             <button class="cardhouver" onclick="switchButton1()">
-                cadastrar as minhas figurinhas
+                Cadastrar as minhas figurinhas
             </button>
 
             <button class="cardhouver" onclick="switchButton2()">
-                achar as figurinhas que me faltam
+                Achar as figurinhas que me faltam
             </button>
         </div>
         <div id="linha"></div>
@@ -84,7 +82,7 @@
                                 Numero da figurinha:
                             </label>
 
-                            <input type="number" id="number" placeholder="Digite o número da figurinha">
+                            <input max="670" type="number" id="number" placeholder="Digite o número da figurinha">
                         </div>
 
                         <div>
@@ -111,13 +109,13 @@
                                 });
                             </script>
                         </div>
-
                         <div>
                             <label>
-                                Seu número de celular:
+                                Seu celular:
                             </label>
 
-                            <input type="tel" id="phone" placeholder="Digite seu número de celular">
+                            <input oninput="formatPhone()" maxlength="17" type="text" id="phone" placeholder="Digite seu número de celular">
+
                         </div>
                     </div>
                     <button type="submit">
@@ -131,7 +129,7 @@
         </div>
         <div class="procura" id="procura">
             <h2>
-                procure suas figurinhas
+                Procure suas figurinhas
             </h2>
             <form id="stickerForm">
                 <div>
@@ -141,24 +139,28 @@
                                 Numero da figurinha:
                             </label>
 
-                            <input type="number" id="name" placeholder="Digite o numero da figurinha">
+                            <input type="number" id="sticker_number" placeholder="Digite o numero da figurinha">
                         </div>
                         <div>
-                            <button type="submit">
-                                Enviar
+                            <button type="button" onclick="getStickersByNumber()">
+                                Buscar
                             </button>
                         </div>
+                    </div>
+                    <div id="message_error_search">
+                        Erro ao buscar figurinha
                     </div>
                 </div>
             </form>
         </div>
+        <div id="stickersList" class="cards"></div>
     </div>
 </body>
 <footer id="footer">
     <div class="linha"></div>
     <div>
         <h1 class="subtitle">
-            site feito por Guilherme, Eduardo, Lucas, Felipe, kaua,
+            Site feito por Guilherme, Eduardo, Lucas, Felipe, kaua,
         </h1>
     </div>
 </footer>
