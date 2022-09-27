@@ -12,158 +12,164 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script></head>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+</head>
 
 <body>
     <div class="main">
-        <h1 class="title">
-            TROCA FIGURINHA
-        </h1>
-        <h2 class="subtitle">
-            O seu site de troca de figurinhas da copa 2022!
-        </h2>
-
-        <div id="faixa">
-            COMO FUNCIONA?
-        </div>
-        <div class="cards">
-            <div>
-                1.
-                <div class="card" id="card1">
-                    Cadastre suas figurinhas repetidas com sua localização e contato
-                </div>
-            </div>
-            >
-            <div>
-                2.
-                <div class="card" id="card2">
-                    Encontre pessoas que precisam das figurinhas que você tem ou aguarde que alguém entre em contato
-                </div>
-            </div>
-            >
-            <div>
-                3.
-                <div class="card" id="card3">
-                    Troque suas figurinhas e divirta-se!
-                </div>
-            </div>
-        </div>
-        <div id="linha"></div>
-        <div class="choice-title">
-            Escolha o que deseja fazer:
-        </div>
-        <div class="choice">
-            <button class="cardhouver" onclick="switchButton1()">
-                Cadastrar as minhas figurinhas
-            </button>
-
-            <button class="cardhouver" onclick="switchButton2()">
-                Achar as figurinhas que me faltam
-            </button>
-        </div>
-        <div id="linha"></div>
-        <div class="cadastro" id="cadastro">
-            <h2>
-                Cadastre suas figurinhas
+        <div id="content">
+            <h1 class="title">
+                TROCA FIGURINHA
+            </h1>
+            <h2 class="subtitle">
+                O seu site de troca de figurinhas da copa 2022!
             </h2>
-            <form id="stickerForm">
+
+            <div id="faixa">
+                COMO FUNCIONA?
+            </div>
+            <div class="cards">
                 <div>
-                    <div class="cadastro-body">
-                        <div>
-                            <label>
-                                Seu nome
-                            </label>
-
-                            <input type="text" id="name" placeholder="Digite seu nome">
-                        </div>
-                        <div>
-
-                            <label>
-                                Numero da figurinha:
-                            </label>
-
-                            <input max="670" type="number" id="number" placeholder="Digite o número da figurinha">
-                        </div>
-
-                        <div>
-                            <label>
-                                Sua cidade:
-                            </label>
-
-                            <input type="text" id="city" placeholder="Digite o nome da sua cidade">
-
-                            <script>
-                                $(function () {
-                                    let url = 'https://servicodados.ibge.gov.br/api/v1/localidades/distritos'
-
-                                    fetch(url)
-                                        .then(async (response) => {
-                                            let cidades_json = await response.json();
-
-                                            let cidades = cidades_json.map((cidade) => cidade.nome)
-
-                                            $("#city").autocomplete({
-                                                source: cidades
-                                            });
-                                        })
-                                });
-                            </script>
-                        </div>
-                        <div>
-                            <label>
-                                Seu celular:
-                            </label>
-
-                            <input oninput="formatPhone()" maxlength="17" type="text" id="phone" placeholder="Digite seu número de celular">
-
-                        </div>
-                    </div>
-                    <button type="submit">
-                        Enviar
-                    </button>
-
-                    <div id="message_ok">Figurinha cadastrada com sucesso!</div>
-                    <div id="message_error">Erro ao cadastrar figurinha.</div>
-                </div>
-            </form>
-        </div>
-        <div class="procura" id="procura">
-            <h2>
-                Procure suas figurinhas
-            </h2>
-            <form id="stickerForm">
-                <div>
-                    <div class="procura-body">
-                        <div>
-                            <label>
-                                Numero da figurinha:
-                            </label>
-
-                            <input type="number" id="sticker_number" placeholder="Digite o numero da figurinha">
-                        </div>
-                        <div>
-                            <button type="button" onclick="getStickersByNumber()">
-                                Buscar
-                            </button>
-                        </div>
-                    </div>
-                    <div id="message_error_search">
-                        Erro ao buscar figurinha
+                    1.
+                    <div class="card" id="card1">
+                        Cadastre suas figurinhas repetidas com sua localização e contato
                     </div>
                 </div>
-            </form>
+                >
+                <div>
+                    2.
+                    <div class="card" id="card2">
+                        Encontre pessoas que precisam das figurinhas que você tem ou aguarde que alguém entre em contato
+                    </div>
+                </div>
+                >
+                <div>
+                    3.
+                    <div class="card" id="card3">
+                        Troque suas figurinhas e divirta-se!
+                    </div>
+                </div>
+            </div>
+            <div class="choice-title">
+                Escolha o que deseja fazer:
+            </div>
+            <div class="choice">
+                <button class="cardhouver" onclick="switchButton1()">
+                    Cadastrar as minhas figurinhas
+                </button>
+
+                <button class="cardhouver" onclick="switchButton2()">
+                    Achar as figurinhas que me faltam
+                </button>
+            </div>
+            <div class="cadastro" id="cadastro">
+                <h2>
+                    Cadastre suas figurinhas
+                </h2>
+                <form id="stickerForm">
+                    <div>
+                        <div class="cadastro-body">
+                            <div>
+                                <label>
+                                    Seu nome
+                                </label>
+
+                                <input type="text" id="name" placeholder="Digite seu nome">
+                            </div>
+                            <div>
+
+                                <label>
+                                    Numero da figurinha:
+                                </label>
+
+                                <input max="670" type="number" id="number" placeholder="Digite o número da figurinha">
+                            </div>
+
+                            <div>
+                                <label>
+                                    Sua cidade:
+                                </label>
+
+                                <input type="text" id="city" placeholder="Digite o nome da sua cidade">
+
+                                <script>
+                                    $(function () {
+                                        let url = 'https://servicodados.ibge.gov.br/api/v1/localidades/distritos'
+
+                                        fetch(url)
+                                            .then(async (response) => {
+                                                let cidades_json = await response.json();
+
+                                                let cidades = cidades_json.map((cidade) => cidade.nome)
+
+                                                $("#city").autocomplete({
+                                                    source: cidades
+                                                });
+                                            })
+                                    });
+                                </script>
+                            </div>
+                            <div>
+                                <label>
+                                    Seu celular:
+                                </label>
+
+                                <input oninput="formatPhone()" maxlength="17" type="text" id="phone"
+                                    placeholder="Digite seu número de celular">
+
+                            </div>
+                        </div>
+                        <button type="submit">
+                            Enviar
+                        </button>
+
+                        <div id="message_ok">Figurinha cadastrada com sucesso!</div>
+                        <div id="message_error">Erro ao cadastrar figurinha.</div>
+                    </div>
+                </form>
+            </div>
+            <div class="procura" id="procura">
+                <h2>
+                    Procure suas figurinhas
+                </h2>
+                <form id="stickerForm">
+                    <div>
+                        <div class="procura-body">
+                            <div>
+                                <label>
+                                    Numero da figurinha:
+                                </label>
+
+                                <input type="number" id="sticker_number" placeholder="Digite o numero da figurinha">
+                            </div>
+                            <div>
+                                <button type="button" onclick="getStickersByNumber()">
+                                    Buscar
+                                </button>
+                            </div>
+                        </div>
+                        <div id="message_error_search">
+                            Erro ao buscar figurinha
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="stickersList" class="cards"></div>
         </div>
-        <div id="stickersList" class="cards"></div>
+        <div id="images">
+            <img style="transform: scaleX(-1);" src="taca-svg.svg" />
+            <img src="taca-svg.svg" />
+        </div>
     </div>
+    <footer id="footer">
+        <div>
+            <h1 class="subtitle">
+                Site feito por Guilherme, Eduardo, Lucas, Felipe e Kauan
+            </h1>
+        </div>
+    </footer>
 </body>
-<footer id="footer">
-    <div class="linha"></div>
-    <div>
-        <h1 class="subtitle">
-            Site feito por Guilherme, Eduardo, Lucas, Felipe, kaua,
-        </h1>
-    </div>
-</footer>
+
 <script src="script.js"></script>
 
 </html>

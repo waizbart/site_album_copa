@@ -8,7 +8,6 @@ body {
     max-height: 100%;
     flex-direction: column;
     margin: 0;
-    background-color: linear-gradient(45deg, #30051f, #731331);
 }
 
 .main {
@@ -16,8 +15,26 @@ body {
     min-height: 100%;
     flex-direction: column;
     color: #E2CFC9;
-    background-image: linear-gradient(45deg, #30051f, #731331);
+    background-image: linear-gradient(45deg, #30051f, #731331);   
+}
+
+#content {
+    text-align: center;
+    z-index: 1;
+    width: 100%;
     align-items: center;
+}
+
+#images {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+    margin-top: 10rem;
+    height: 70%;
+    height: 100%;
 }
 
 .choice {
