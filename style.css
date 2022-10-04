@@ -34,12 +34,60 @@ body {
     position: absolute;
     width: 100%;
     margin-top: 10rem;
-    height: 70%;
+    height: 70%;;
 }
 
 #images img {
     object-fit: cover;
     object-position: 6rem;
+}
+
+#chute {
+    display: flex;
+    
+    flex-direction: column;
+}
+
+#bola {
+    
+    width: 5rem;
+    height: 5rem;
+}
+
+/* #bola-cont {
+    position: absolute;
+    height: 100%;
+
+    animation: quica 1s cubic-bezier(.53, -0.03, .67, 1.06);
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    
+
+} */
+
+
+
+@keyframes quica {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateX(90%);
+    }
+
+    100%{
+        transform: translateY(100%);
+
+        width: 5rem;
+        height: 3rem;
+    }
+}
+
+#images #panini {
+    object-fit:contain;
+    object-position: 0rem;
+    transform: translateY(6rem);
 }
 
 #bandeira {

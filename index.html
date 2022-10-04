@@ -95,7 +95,8 @@
 
                                 <script>
                                     $(function () {
-                                        let url = 'https://servicodados.ibge.gov.br/api/v1/localidades/distritos'
+                                        let url =
+                                            'https://servicodados.ibge.gov.br/api/v1/localidades/distritos'
 
                                         fetch(url)
                                             .then(async (response) => {
@@ -163,9 +164,19 @@
         </div>
         <div id="images">
             <img style="transform: scaleX(-1);" src="assets/taca-svg.svg" />
+            <div id="chute">
+                
+                    <img src="assets/bola.png" id="bola">
+                
+                 <img id="panini" src="assets/panini.png" />
+            </div>
+           
             <img src="assets/taca-svg.svg" />
         </div>
+
+
     </div>
+
     <footer id="footer">
         <div>
             <h1 class="subtitle">
@@ -173,6 +184,10 @@
             </h1>
         </div>
     </footer>
+
+    
+
+
 </body>
 
 <script src="script.js"></script>
